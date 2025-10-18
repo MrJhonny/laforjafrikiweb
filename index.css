@@ -1,0 +1,90 @@
+:root{
+  --bg:#f3fff8;
+  --card:#ffffff;
+  --accent:#00796b;
+  --muted:#586e6a;
+  --glass: rgba(255,255,255,0.6);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, #f7fff9 0%, #f0fff6 100%);
+  color:#053028;
+}
+
+/* Minimal centric layout */
+.minimal{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px}
+.principal-logo{width:180px;max-width:60%;height:auto;margin-bottom:18px;border-radius:12px}
+h1{margin:0;font-size:2rem;color:#39e600}
+.tag{margin-top:10px;color:rgba(214,255,214,0.92);max-width:720px;margin:8px auto 0}
+
+.minimal.dark{background:#0b0b0b;color:#d6ffd6;}
+.minimal.dark .principal-logo{box-shadow:0 8px 30px rgba(0,0,0,0.6);}
+
+.accent-orange{color:#ff7700;}
+
+/* Industrial plate */
+.metal-plate{width:380px;max-width:80%;background:linear-gradient(180deg,#141414 0%,#1b1b1b 60%,#2a2a2a 100%);border-radius:12px;padding:22px;position:relative;margin-bottom:18px;border:2px solid rgba(255,255,255,0.03);box-shadow:inset 0 2px 8px rgba(255,255,255,0.02),0 18px 40px rgba(0,0,0,0.6)}
+.plate-inner{background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:8px;display:flex;align-items:center;justify-content:center}
+.principal-logo{width:220px;max-width:100%;height:auto}
+.rivets{width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #aaa, #666 60%);position:absolute}
+.rivet-top-left{top:8px;left:8px}
+.rivet-top-right{top:8px;right:8px}
+.rivet-bottom-left{bottom:8px;left:8px}
+.rivet-bottom-right{bottom:8px;right:8px}
+
+.metal-plate{width:60%;max-width:420px;background:linear-gradient(180deg,#141414 0%,#1b1b1b 60%,#2a2a2a 100%);border-radius:12px;padding:22px;position:relative;margin:0 auto 18px;border:2px solid rgba(255,255,255,0.03);box-shadow:inset 0 2px 8px rgba(255,255,255,0.02),0 18px 40px rgba(0,0,0,0.6)}
+.metal-plate::after{content:"";position:absolute;left:-60%;top:0;width:40%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0.0) 0%, rgba(255,255,255,0.06) 50%, rgba(255,255,255,0.0) 100%);transform:skewX(-20deg);animation:sheen 3.6s linear infinite}
+@keyframes sheen{0%{left:-60%}50%{left:60%}100%{left:160%}}
+
+@media(max-width:520px){
+  .metal-plate{width:280px;padding:14px}
+  .principal-logo{width:160px}
+}
+
+/* Social icons */
+.social-row{display:flex;gap:14px;justify-content:center;margin-top:14px}
+.social-link{display:inline-flex;width:56px;height:56px;border-radius:50%;align-items:center;justify-content:center;text-decoration:none}
+.social-link.instagram{background:#E1306C}
+.social-link.tiktok{background:#010101}
+.social-icon{width:32px;height:32px;filter:brightness(0) invert(1)}
+
+@media(max-width:520px){
+  .social-link{width:48px;height:48px}
+  .social-icon{width:24px;height:24px}
+}
+
+/* Hover effects */
+.social-link{transition:transform 220ms cubic-bezier(.2,.9,.2,1),box-shadow 220ms,filter 220ms}
+.social-link:hover{transform:translateY(-4px) scale(1.08);box-shadow:0 18px 30px rgba(0,0,0,0.45)}
+.social-link.instagram:hover{filter:drop-shadow(0 6px 18px rgba(225,48,108,0.18))}
+.social-link.tiktok:hover{filter:drop-shadow(0 6px 18px rgba(0,0,0,0.28))}
+
+/* Optional colored glow using pseudo-elements */
+.social-link.instagram::after, .social-link.tiktok::after{content:"";position:absolute;width:100%;height:100%;border-radius:50%;left:0;top:0;opacity:0;transition:opacity 220ms;pointer-events:none}
+.social-link.instagram::after{box-shadow:0 0 30px 6px rgba(255,119,0,0.12)}
+.social-link.tiktok::after{box-shadow:0 0 30px 6px rgba(57,230,0,0.12)}
+.social-link:hover::after{opacity:1}
+
+/* Focus-visible for accessibility */
+.social-link:focus-visible{outline:3px solid #39e600;outline-offset:4px}
+
+/* Forzar SVGs a monocromo blanco si no se editan los archivos */
+.social-icon[src$=".svg"]{filter:brightness(0) invert(1)}
+
+@media(max-width:520px){
+  h1{font-size:1.5rem}
+  .minimal-logo{width:72px;height:72px}
+}
+
+/* Icon row */
+.icons-row{display:flex;gap:18px;align-items:center;justify-content:center;margin-bottom:16px}
+.icons-row .icon{width:72px;height:72px;object-fit:contain}
+.icons-row .icon[src$=".svg"]{filter:invert(0);}
+
+@media(max-width:520px){
+  .icons-row .icon{width:56px;height:56px}
+}
